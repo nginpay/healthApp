@@ -10,6 +10,19 @@ app.get('/health', async (req, res) => {
     })
 })
 
+app.post('/cep/:cep', async (req, res) => {
+    
+
+        
+    try {
+        const res = await axios.get(`https://viacep.com.br/ws/01001000/json/`);
+    } catch (error) {
+        return res.status(500).json('falha. Serviço não disponível')
+    }
+    
+    return res.json(res.data)
+})
+
 app.listen(3001, () => {
     console.log('rondando em 3001')
 })
