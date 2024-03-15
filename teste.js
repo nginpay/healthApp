@@ -23,7 +23,6 @@ app.get('/cep/:cep', async (req, res) => {
         return res.status(500).json('falha. Serviço não disponível')
     }
     
-
     //após validação, estando tudo UP, realiza a chamada do microsserviço
     const consulta = await axios.post(`http://localhost:3001/cep/${cep}`);
 
